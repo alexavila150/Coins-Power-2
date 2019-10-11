@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/boardImage"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/board" />
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:verticalScrollbarPosition="defaultPosition"
+            android:visibility="visible" >
+
+            <ImageView
+                android:id="@+id/row0col0"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:onClick="selectPiece"
+                android:tag="null"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <ImageView
+                android:id="@+id/row0col1"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:onClick="selectPiece"
+                android:tag="null"
+                tools:srcCompat="@tools:sample/avatars[0]" />
+
+            <ImageView
+                android:id="@+id/row0col2"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:onClick="selectPiece"
+                android:tag="null"
+                tools:srcCompat="@tools:sample/avatars[0]" />
+
+            <ImageView
+                android:id="@+id/row0col3"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:onClick="selectPiece"
+                android:tag="null"
+                tools:srcCompat="@tools:sample/avatars[0]" />
+
+            <ImageView
+                android:id="@+id/row0col4"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:onClick="selectPiece"
+                android:tag="null"
+                tools:srcCompat="@tools:sample/avatars[0]" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <ImageView
+                android:id="@+id/row1col0"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:onClick="selectPiece"
+                android:tag="null"
+                tools:srcCompat="@tools:sample/avatars[0]" />
+
+            <ImageView
+                android:id="@+id/row1col1"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:onClick="selectPiece"
+                android:tag="null"
+                tools:srcCompat="@tools:sample/avatars[0]" />
+
+            <ImageView
+                android:id="@+id/row1col2"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:onClick="selectPiece"
+                android:tag="null"
+                tools:srcCompat="@tools:sample/avatars[0]" />
+
+            <ImageView
+                android:id="@+id/row1col3"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:onClick="selectPiece"
+                android:tag="null"
+                tools:srcCompat="@tools:sample/avatars[0]" />
+
+            <ImageView
+                android:id="@+id/row1col4"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:onClick="selectPiece"
+                android:tag="null"
+                tools:srcCompat="@tools:sample/avatars[0]" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <ImageView
+                android:id="@+id/row2col0"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:onClick="selectPiece"
+                android:tag="null"
+                tools:srcCompat="@tools:sample/avatars[0]" />
+
+            <ImageView
+                android:id="@+id/row2col1"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:onClick="selectPiece"
+                android:tag="null"
+                tools:srcCompat="@tools:sample/avatars[0]" />
+
+            <ImageView
+                android:id="@+id/row2col2"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:onClick="selectPiece"
+                android:tag="null"
+                tools:srcCompat="@tools:sample/avatars[0]" />
+
+            <ImageView
+                android:id="@+id/row2col3"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:onClick="selectPiece"
+                android:tag="null"
+                tools:srcCompat="@tools:sample/avatars[0]" />
+
+            <ImageView
+                android:id="@+id/row2col4"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:onClick="selectPiece"
+                android:tag="null"
+                tools:srcCompat="@tools:sample/avatars[0]" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <ImageView
+                android:id="@+id/row3col0"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:onClick="selectPiece"
+                android:tag="null"
+                tools:srcCompat="@tools:sample/avatars[0]" />
+
+            <ImageView
+                android:id="@+id/row3col1"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:onClick="selectPiece"
+                android:tag="null"
+                tools:srcCompat="@tools:sample/avatars[0]" />
+
+            <ImageView
+                android:id="@+id/row3col2"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:onClick="selectPiece"
+                android:tag="null"
+                tools:srcCompat="@tools:sample/avatars[0]" />
+
+            <ImageView
+                android:id="@+id/row3col3"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:onClick="selectPiece"
+                android:tag="null"
+                tools:srcCompat="@tools:sample/avatars[0]" />
+
+            <ImageView
+                android:id="@+id/row3col4"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:onClick="selectPiece"
+                android:tag="null"
+                tools:srcCompat="@tools:sample/avatars[0]" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <ImageView
+                android:id="@+id/row4col0"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:onClick="selectPiece"
+                android:tag="null"
+                tools:srcCompat="@tools:sample/avatars[0]" />
+
+            <ImageView
+                android:id="@+id/row4col1"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:onClick="selectPiece"
+                android:tag="null"
+                tools:srcCompat="@tools:sample/avatars[0]" />
+
+            <ImageView
+                android:id="@+id/row4col2"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:onClick="selectPiece"
+                android:tag="null"
+                tools:srcCompat="@tools:sample/avatars[0]" />
+
+            <ImageView
+                android:id="@+id/row4col3"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:onClick="selectPiece"
+                android:tag="null"
+                tools:srcCompat="@tools:sample/avatars[0]" />
+
+            <ImageView
+                android:id="@+id/row4col4"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:onClick="selectPiece"
+                android:tag="null"
+                tools:srcCompat="@tools:sample/avatars[0]" />
+
+        </TableRow>
+
+    </TableLayout>
+
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/blueCoins"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        app:columnCount="5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout">
+
+        <ImageView
+            android:id="@+id/blue1"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:onClick="selectPiece"
+            android:tag="blue1"
+            app:layout_column="0"
+            app:layout_row="0"
+            app:srcCompat="@drawable/blue1" />
+
+        <ImageView
+            android:id="@+id/blue2"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:onClick="selectPiece"
+            android:tag="blue2"
+            app:layout_column="1"
+            app:layout_row="0"
+            app:srcCompat="@drawable/blue2" />
+
+        <ImageView
+            android:id="@+id/blue3"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:onClick="selectPiece"
+            android:tag="blue3"
+            app:layout_column="2"
+            app:layout_row="0"
+            app:srcCompat="@drawable/blue3" />
+
+        <ImageView
+            android:id="@+id/blue4"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:onClick="selectPiece"
+            android:tag="blue4"
+            app:layout_column="3"
+            app:layout_row="0"
+            app:srcCompat="@drawable/blue4" />
+
+        <ImageView
+            android:id="@+id/blue5"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:onClick="selectPiece"
+            android:tag="blue5"
+            app:layout_column="4"
+            app:layout_row="0"
+            app:srcCompat="@drawable/blue5" />
+    </androidx.gridlayout.widget.GridLayout>
+
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/orangeCoins"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        app:columnCount="5"
+        app:layout_constraintBottom_toTopOf="@+id/tableLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/orange1"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:onClick="selectPiece"
+            android:tag="orange1"
+            app:layout_column="0"
+            app:layout_row="0"
+            app:srcCompat="@drawable/orange1" />
+
+        <ImageView
+            android:id="@+id/orange2"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:onClick="selectPiece"
+            android:tag="orange2"
+            app:layout_column="1"
+            app:layout_row="0"
+            app:srcCompat="@drawable/orange2" />
+
+        <ImageView
+            android:id="@+id/orange3"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:onClick="selectPiece"
+            android:tag="orange3"
+            app:layout_column="2"
+            app:layout_row="0"
+            app:srcCompat="@drawable/orange3" />
+
+        <ImageView
+            android:id="@+id/orange4"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:onClick="selectPiece"
+            android:tag="orange4"
+            app:layout_column="3"
+            app:layout_row="0"
+            app:srcCompat="@drawable/orange4" />
+
+        <ImageView
+            android:id="@+id/orange5"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:onClick="selectPiece"
+            android:tag="orange5"
+            app:layout_column="4"
+            app:layout_row="0"
+            app:srcCompat="@drawable/orange5" />
+    </androidx.gridlayout.widget.GridLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
