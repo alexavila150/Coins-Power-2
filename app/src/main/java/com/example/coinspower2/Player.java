@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Player extends AppCompatActivity {
     int score = 0;
-    int turn = 0;
     boolean isNext = false;
     Piece selectedPiece;
     Piece[] pieces;
@@ -23,7 +22,6 @@ public class Player extends AppCompatActivity {
     public void reset(){
         //reset attributes
         score = 0;
-        turn = 0;
         isNext = false;
         selectedPiece = null;
 
@@ -36,7 +34,6 @@ public class Player extends AppCompatActivity {
     }
 
     public void changeTurn(){
-        if(isNext) turn++;
         isNext = !isNext;
     }
 }

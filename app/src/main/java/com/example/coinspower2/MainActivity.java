@@ -3,6 +3,7 @@ package com.example.coinspower2;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
     ImageView selectedView;
     ImageView destView;
 
+    TextView turnIndicator;
+
     //Classes and Variables
     InGameScore inGameScore;
     Board board;
@@ -30,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     HashMap<ImageView, Box> boxes;
 
     public void selectPiece(View view){
-        if(selectedView == null){
+        if(selectedView == null || selectedView == view){
             selectedView = (ImageView) view;
             if(selectedView.getTag().toString().equals("null")){
                 selectedView = null;
@@ -40,9 +44,17 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        destView = (ImageView) view;
-        changeImages();
-        selectedView = null;
+        //Prepare allowed boxes and neighbors
+        ArrayList<ImageView> allowedBoxes = boxes.get(selectedView).allowedBoxes;
+        ArrayList<ImageView> neighbors = boxes.get(selectedView).neighbors;
+
+        //Check if box can move into the next view
+        if (allowedBoxes.contains(view)){
+            destView = (ImageView) view;
+            changeImages();
+            selectedView = null;
+            destView = null;
+        }
     }
 
     public void changeImages(){
@@ -81,13 +93,32 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //Change turn
-        inGameScore.changeTurn();
+        changeTurn();
 
+        //if game finished
         if(inGameScore.turnIsMax()){
             setViewsClickable(false);
+            turnIndicator.setBackgroundColor(Color.parseColor("#FF0000"));
         }
     }
 
+    //change the color and update
+    public void changeTurn(){
+        int orange = Color.parseColor("#FF5722");
+        int blue = Color.parseColor("#45B6FE");
+
+        inGameScore.changeTurn();
+
+        if("blue".equals(inGameScore.turn)){
+            turnIndicator.setBackgroundColor(blue);
+        }else{
+            turnIndicator.setBackgroundColor(orange);
+        }
+    }
+
+    //Set "images" HashMap
+    //Key: String "blue1"
+    //Value: int image address
     public void prepareImagesHashMap(){
         images = new HashMap<String, Integer>();
         images.put("blue1", R.drawable.blue1);
@@ -115,6 +146,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //set images for the coins
     public void setBluesAndOranges(){
         blues = new ImageView[5];
         blues[0] = findViewById(R.id.blue1);
@@ -131,6 +163,7 @@ public class MainActivity extends AppCompatActivity {
         oranges[4] = findViewById(R.id.orange5);
     }
 
+    //Set views for the board
     public void initBoardViews(){
         boardViews = new ImageView[5][5];
 
@@ -165,6 +198,8 @@ public class MainActivity extends AppCompatActivity {
         boardViews[4][4] = findViewById(R.id.row4col4);
     }
 
+    //Sets the boxes that are allowed to be move into
+    //and the neighbors for each box on the board
     public void addNeighborsAndAllowedBoxes(){
         //add corner neighbors and allowed boxes
         addNeighbor(boardViews[0][1], board.boardBoxes[0][0]);
@@ -281,6 +316,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //Sets if the board is clickable or not
     public void setViewsClickable(Boolean b){
         for(int i = 0; i < 5; i++){
             blues[i].setClickable(b);
@@ -303,8 +339,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         setBluesAndOranges();
         initBoardViews();
+        turnIndicator = findViewById(R.id.turnIndicator);
 
         inGameScore = new InGameScore(blues, oranges, boardViews);
         inGameScore.start();

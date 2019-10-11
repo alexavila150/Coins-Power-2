@@ -6,6 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/turnIndicator"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:background="#45B6FE"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/boardImage"
         android:layout_width="300dp"
@@ -29,7 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:verticalScrollbarPosition="defaultPosition"
-            android:visibility="visible" >
+            android:visibility="visible">
 
             <ImageView
                 android:id="@+id/row0col0"
@@ -75,7 +86,7 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/row1col0"
@@ -121,7 +132,7 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/row2col0"
@@ -167,7 +178,7 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/row3col0"
@@ -213,7 +224,7 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/row4col0"
@@ -258,67 +269,6 @@
         </TableRow>
 
     </TableLayout>
-
-    <androidx.gridlayout.widget.GridLayout
-        android:id="@+id/blueCoins"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        app:columnCount="5"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tableLayout">
-
-        <ImageView
-            android:id="@+id/blue1"
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
-            android:onClick="selectPiece"
-            android:tag="blue1"
-            app:layout_column="0"
-            app:layout_row="0"
-            app:srcCompat="@drawable/blue1" />
-
-        <ImageView
-            android:id="@+id/blue2"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:onClick="selectPiece"
-            android:tag="blue2"
-            app:layout_column="1"
-            app:layout_row="0"
-            app:srcCompat="@drawable/blue2" />
-
-        <ImageView
-            android:id="@+id/blue3"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:onClick="selectPiece"
-            android:tag="blue3"
-            app:layout_column="2"
-            app:layout_row="0"
-            app:srcCompat="@drawable/blue3" />
-
-        <ImageView
-            android:id="@+id/blue4"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:onClick="selectPiece"
-            android:tag="blue4"
-            app:layout_column="3"
-            app:layout_row="0"
-            app:srcCompat="@drawable/blue4" />
-
-        <ImageView
-            android:id="@+id/blue5"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:onClick="selectPiece"
-            android:tag="blue5"
-            app:layout_column="4"
-            app:layout_row="0"
-            app:srcCompat="@drawable/blue5" />
-    </androidx.gridlayout.widget.GridLayout>
 
     <androidx.gridlayout.widget.GridLayout
         android:id="@+id/orangeCoins"
@@ -380,6 +330,67 @@
             app:layout_column="4"
             app:layout_row="0"
             app:srcCompat="@drawable/orange5" />
+    </androidx.gridlayout.widget.GridLayout>
+
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/blueCoins"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        app:columnCount="5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout">
+
+        <ImageView
+            android:id="@+id/blue1"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:onClick="selectPiece"
+            android:tag="blue1"
+            app:layout_column="0"
+            app:layout_row="0"
+            app:srcCompat="@drawable/blue1" />
+
+        <ImageView
+            android:id="@+id/blue2"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:onClick="selectPiece"
+            android:tag="blue2"
+            app:layout_column="1"
+            app:layout_row="0"
+            app:srcCompat="@drawable/blue2" />
+
+        <ImageView
+            android:id="@+id/blue3"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:onClick="selectPiece"
+            android:tag="blue3"
+            app:layout_column="2"
+            app:layout_row="0"
+            app:srcCompat="@drawable/blue3" />
+
+        <ImageView
+            android:id="@+id/blue4"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:onClick="selectPiece"
+            android:tag="blue4"
+            app:layout_column="3"
+            app:layout_row="0"
+            app:srcCompat="@drawable/blue4" />
+
+        <ImageView
+            android:id="@+id/blue5"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:onClick="selectPiece"
+            android:tag="blue5"
+            app:layout_column="4"
+            app:layout_row="0"
+            app:srcCompat="@drawable/blue5" />
     </androidx.gridlayout.widget.GridLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

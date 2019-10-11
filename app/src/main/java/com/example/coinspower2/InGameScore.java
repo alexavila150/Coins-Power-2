@@ -13,16 +13,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.HashMap;
 
 public class InGameScore extends AppCompatActivity{
-    static Player bluePlayer;
-    static Player orangePlayer;
-    static int moveNumber;
-    static HashMap<String, ImageView> imageViewMap;
+    Player bluePlayer;
+    Player orangePlayer;
+    String turn;
+    int moveNumber;
+    HashMap<String, ImageView> imageViewMap;
 
 
     public InGameScore(ImageView[] blues, ImageView[] oranges, ImageView[][] boardViews){
         bluePlayer = new Player(blues);
         orangePlayer = new Player(oranges);
         moveNumber = 0;
+        turn = "blue";
     }
 
 
@@ -30,12 +32,18 @@ public class InGameScore extends AppCompatActivity{
         bluePlayer.start();
         orangePlayer.reset();
         moveNumber = 0;
+        turn = "blue";
     }
 
     public void changeTurn(){
         bluePlayer.changeTurn();
         orangePlayer.changeTurn();
         increaseMove();
+        if("blue".equals(turn)){
+            turn = "orange";
+        }else{
+            turn = "blue";
+        }
     }
 
     public boolean turnIsMax(){
