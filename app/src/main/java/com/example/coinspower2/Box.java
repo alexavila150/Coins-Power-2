@@ -13,8 +13,8 @@ public class Box extends AppCompatActivity {
 
     public Box(ImageView imageView){
         this.imageView = imageView;
-        this.neighbors = new ArrayList<ImageView>();
-        this.allowedBoxes = new ArrayList<ImageView>();
+        this.neighbors = new ArrayList<>();
+        this.allowedBoxes = new ArrayList<>();
     }
 
     public Box(ImageView imageView, ArrayList<ImageView> neighbors, ArrayList<ImageView> allowedBoxes){
@@ -23,3 +23,22 @@ public class Box extends AppCompatActivity {
         this.allowedBoxes = allowedBoxes;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -55,6 +55,4 @@ public class InGameScore extends AppCompatActivity{
         moveNumber++;
     }
 
-
-
 }

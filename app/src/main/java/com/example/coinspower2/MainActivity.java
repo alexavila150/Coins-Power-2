@@ -1,5 +1,6 @@
 package com.example.coinspower2;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
@@ -13,8 +14,10 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 
 public class MainActivity extends AppCompatActivity {
     //Views
@@ -32,26 +35,25 @@ public class MainActivity extends AppCompatActivity {
     Board board;
     HashMap<String, Integer> images;
     HashMap<ImageView, Box> boxes;
+    HashSet<String> blueTags;
+    HashSet<String> orangeTags;
 
     public void selectPiece(View view){
-        if(selectedView == null || selectedView == view){
+        if(selectedView == null || selectedView == view || isPiece(view)){
             selectedView = (ImageView) view;
+            Log.i("selectedView Tag", selectedView.getTag().toString());
             if(selectedView.getTag().toString().equals("null")){
                 selectedView = null;
                 return;
             }
-            Log.i("selectedView", "set");
             return;
         }
 
-        //Prepare allowed boxes and neighbors
-        ArrayList<ImageView> allowedBoxes = boxes.get(selectedView).allowedBoxes;
-        ArrayList<ImageView> neighbors = boxes.get(selectedView).neighbors;
-
-        //Check if box can move into the next view
-        if (allowedBoxes.contains(view)){
+        //Check if piece can move into the next view
+        if (isAllowedBox(view)){
             destView = (ImageView) view;
             changeImages();
+            Log.i("Number of Neighbors",getNumberOfNeighbors() + "");
             selectedView = null;
             destView = null;
         }
@@ -116,6 +118,39 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public boolean isBluePiece(View view){
+        return blueTags.contains(view.getTag().toString());
+    }
+
+    public boolean isOrangePiece(View view){
+        return orangeTags.contains(view.getTag().toString());
+    }
+
+    public boolean isPiece(View view){
+        return isBluePiece(view) || isOrangePiece(view);
+    }
+
+    public boolean isAllowedBox(View view){
+        ArrayList<ImageView> allowedBoxes = boxes.get(selectedView).allowedBoxes;
+        return allowedBoxes.contains(view);
+    }
+
+    public boolean isNeighbor(View view){
+        ArrayList<ImageView> neighbors = boxes.get(selectedView).neighbors;
+        return neighbors.contains(view);
+    }
+
+    public int getNumberOfNeighbors(){
+        ArrayList<ImageView> neighbors = boxes.get(destView).neighbors;
+        int count = 0;
+        for(int i = 0; i < neighbors.size(); i++){
+            if (isPiece(neighbors.get(i))){
+                count++;
+            }
+        }
+        return count;
+    }
+
     //Set "images" HashMap
     //Key: String "blue1"
     //Value: int image address
@@ -134,6 +169,9 @@ public class MainActivity extends AppCompatActivity {
         images.put("orange5", R.drawable.orange5);
     }
 
+    //Set "boxes" HashMap
+    //Key: ImageView
+    //Value: Box
     public void prepareBoxesHashMap(){
         boxes = new HashMap<ImageView, Box>();
         for(int i = 0; i < 5; i++){
@@ -335,6 +373,15 @@ public class MainActivity extends AppCompatActivity {
         box.allowedBoxes.add(imageView);
     }
 
+    public void setPieceTags(){
+        blueTags = new HashSet<>();
+        orangeTags = new HashSet<>();
+        for(int i = 1; i <= 5; i++){
+            blueTags.add("blue" + i);
+            orangeTags.add("orange" + i);
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -351,6 +398,7 @@ public class MainActivity extends AppCompatActivity {
         board = new Board(boardViews, blues, oranges);
         prepareBoxesHashMap();
         addNeighborsAndAllowedBoxes();
+        setPieceTags();
 
     }
 }
