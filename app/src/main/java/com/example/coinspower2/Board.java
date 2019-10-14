@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Board extends MainActivity {
+    //Attributes
     Box[][] boardBoxes;
     Box[] blueBoxes;
     Box[] orangeBoxes;
