@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     HashSet<String> orangeTags;
 
     public void selectPiece(View view){
+        Log.i("turn", inGameScore.turn);
         if(selectedView == null || selectedView == view || isPiece(view)){
             selectedView = (ImageView) view;
             Log.i("selectedView Tag", selectedView.getTag().toString());
@@ -46,6 +47,20 @@ public class MainActivity extends AppCompatActivity {
                 selectedView = null;
                 return;
             }
+
+            //Check if the selected piece corresponds with the curr turn
+            if(inGameScore.turn == "orange"){
+                if (!isOrangePiece(selectedView)){
+                    selectedView = null;
+                    return;
+                }
+            }else if(inGameScore.turn == "blue"){
+                if(!isBluePiece(selectedView)){
+                    selectedView = null;
+                    return;
+                }
+            }
+
             return;
         }
 
