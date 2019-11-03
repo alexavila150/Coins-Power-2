@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.HashMap;
 
-public class InGameScore extends AppCompatActivity{
+public class InGameScore extends MainActivity{
     Player bluePlayer;
     Player orangePlayer;
     String turn;
@@ -26,7 +26,6 @@ public class InGameScore extends AppCompatActivity{
         moveNumber = 0;
         turn = "blue";
     }
-
 
     public void start(){
         bluePlayer.start();
@@ -53,6 +52,14 @@ public class InGameScore extends AppCompatActivity{
     public void increaseMove(){
         Log.i("moveNumber", moveNumber + "");
         moveNumber++;
+    }
+
+    public void addPoints(int points){
+        if ("blue".equals(turn)){
+            bluePlayer.score += points;
+        }else{
+            orangePlayer.score += points;
+        }
     }
 
 }

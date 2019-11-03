@@ -27,6 +27,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/board" />
 
+    <TextView
+        android:id="@+id/blueScore"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:gravity="center"
+        android:text="0"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <TableLayout
         android:id="@+id/tableLayout"
         android:layout_width="300dp"
@@ -392,5 +402,16 @@
             app:layout_row="0"
             app:srcCompat="@drawable/blue5" />
     </androidx.gridlayout.widget.GridLayout>
+
+    <TextView
+        android:id="@+id/orangeScore"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:gravity="center"
+        android:text="0"
+        android:textSize="30sp"
+        android:rotation="180"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
     ImageView destView;
 
     TextView turnIndicator;
+    TextView blueScore;
+    TextView orangeScore;
 
     //Classes and Variables
     InGameScore inGameScore;
@@ -65,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //Check if piece can move into the next view
-        if (isAllowedBox(view)){
+        if (isAllowedBox(view)){  //Piece is allowed to move
             destView = (ImageView) view;
             changeImages();
             Log.i("Number of Neighbors",getNumberOfNeighbors() + "");
@@ -76,12 +78,15 @@ public class MainActivity extends AppCompatActivity {
 
     public void changeImages(){
         //if box is occupied do not change
-        if(!destView.getTag().toString().equals("null")){
+        if(!destView.getTag().toString().equals("null")){ // destView is not avaliable
             Log.i("square", "occupied");
             selectedView = destView;
             destView = null;
             return;
         }
+
+        int value = getValue();
+        Log.i("Value", value + "");
 
         //Exchange tags
         Object temp = selectedView.getTag();
@@ -109,11 +114,19 @@ public class MainActivity extends AppCompatActivity {
             destView.setImageDrawable(drawable);
         }
 
+        if (value == getNumberOfNeighbors()){ // value of coin is the same as value number of neighbors
+            inGameScore.addPoints(value);
+        }
+
+        //Change Score
+        blueScore.setText(inGameScore.bluePlayer.score + "");
+        orangeScore.setText(inGameScore.orangePlayer.score + "");
+
         //Change turn
         changeTurn();
 
         //if game finished
-        if(inGameScore.turnIsMax()){
+        if(inGameScore.turnIsMax()){ // Game finished
             setViewsClickable(false);
             turnIndicator.setBackgroundColor(Color.parseColor("#FF0000"));
         }
@@ -153,6 +166,14 @@ public class MainActivity extends AppCompatActivity {
     public boolean isNeighbor(View view){
         ArrayList<ImageView> neighbors = boxes.get(selectedView).neighbors;
         return neighbors.contains(view);
+    }
+
+    //Get value of the selce
+    public int getValue(){
+        String tag = selectedView.getTag().toString();
+        Log.i("tag", tag);
+        int value = Integer.parseInt(tag.charAt(tag.length() - 1) + "");
+        return value;
     }
 
     public int getNumberOfNeighbors(){
@@ -405,6 +426,8 @@ public class MainActivity extends AppCompatActivity {
         setBluesAndOranges();
         initBoardViews();
         turnIndicator = findViewById(R.id.turnIndicator);
+        blueScore = findViewById(R.id.blueScore);
+        orangeScore = findViewById(R.id.orangeScore);
 
         inGameScore = new InGameScore(blues, oranges, boardViews);
         inGameScore.start();
