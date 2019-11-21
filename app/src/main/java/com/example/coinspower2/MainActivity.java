@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void selectPiece(View view){
         Log.i("turn", inGameScore.turn);
-        if(selectedView == null || selectedView == view || isPiece(view)){
+        if(selectedView == null || selectedView == view || isPiece(view)){ // Image is selectable
             selectedView = (ImageView) view;
             Log.i("selectedView Tag", selectedView.getTag().toString());
             if(selectedView.getTag().toString().equals("null")){
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //Check if piece can move into the next view
-        if (isAllowedBox(view)){  //Piece is allowed to move
+        if (isNeighbor(view) || isAllowedBox(view)){  //Piece is allowed to move
             destView = (ImageView) view;
             changeImages();
             Log.i("Number of Neighbors",getNumberOfNeighbors() + "");
@@ -107,9 +107,10 @@ public class MainActivity extends AppCompatActivity {
 
         //Set destView image
         tag = destView.getTag().toString();
-        if(tag.equals("null")){
+        if(tag.equals("null")){ //
             selectedView.setImageDrawable(null);
         }else {
+            Log.i("image", images.get(destView.getTag().toString()) + "");
             drawable = getResources().getDrawable(images.get(destView.getTag().toString()));
             destView.setImageDrawable(drawable);
         }
@@ -119,6 +120,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //Change Score
+        Log.i("TEST", "0");
+        Log.i("DEBUG", inGameScore.bluePlayer.score + "");
         blueScore.setText(inGameScore.bluePlayer.score + "");
         orangeScore.setText(inGameScore.orangePlayer.score + "");
 
@@ -192,17 +195,17 @@ public class MainActivity extends AppCompatActivity {
     //Value: int image address
     public void prepareImagesHashMap(){
         images = new HashMap<String, Integer>();
-        images.put("blue1", R.drawable.blue1);
         images.put("blue2", R.drawable.blue2);
         images.put("blue3", R.drawable.blue3);
         images.put("blue4", R.drawable.blue4);
         images.put("blue5", R.drawable.blue5);
+        images.put("blue6", R.drawable.blue6);
 
-        images.put("orange1", R.drawable.orange1);
         images.put("orange2", R.drawable.orange2);
         images.put("orange3", R.drawable.orange3);
         images.put("orange4", R.drawable.orange4);
         images.put("orange5", R.drawable.orange5);
+        images.put("orange6", R.drawable.orange6);
     }
 
     //Set "boxes" HashMap
@@ -223,18 +226,18 @@ public class MainActivity extends AppCompatActivity {
     //set images for the coins
     public void setBluesAndOranges(){
         blues = new ImageView[5];
-        blues[0] = findViewById(R.id.blue1);
-        blues[1] = findViewById(R.id.blue2);
-        blues[2] = findViewById(R.id.blue3);
-        blues[3] = findViewById(R.id.blue4);
-        blues[4] = findViewById(R.id.blue5);
+        blues[0] = findViewById(R.id.blue2);
+        blues[1] = findViewById(R.id.blue3);
+        blues[2] = findViewById(R.id.blue4);
+        blues[3] = findViewById(R.id.blue5);
+        blues[4] = findViewById(R.id.blue6);
 
         oranges = new ImageView[5];
-        oranges[0] = findViewById(R.id.orange1);
-        oranges[1] = findViewById(R.id.orange2);
-        oranges[2] = findViewById(R.id.orange3);
-        oranges[3] = findViewById(R.id.orange4);
-        oranges[4] = findViewById(R.id.orange5);
+        oranges[0] = findViewById(R.id.orange2);
+        oranges[1] = findViewById(R.id.orange3);
+        oranges[2] = findViewById(R.id.orange4);
+        oranges[3] = findViewById(R.id.orange5);
+        oranges[4] = findViewById(R.id.orange6);
     }
 
     //Set views for the board
@@ -412,7 +415,7 @@ public class MainActivity extends AppCompatActivity {
     public void setPieceTags(){
         blueTags = new HashSet<>();
         orangeTags = new HashSet<>();
-        for(int i = 1; i <= 5; i++){
+        for(int i = 2; i <= 6; i++){
             blueTags.add("blue" + i);
             orangeTags.add("orange" + i);
         }

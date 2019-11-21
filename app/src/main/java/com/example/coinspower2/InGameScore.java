@@ -46,7 +46,7 @@ public class InGameScore extends MainActivity{
     }
 
     public boolean turnIsMax(){
-        return moveNumber == 16;
+        return moveNumber == 30;
     }
 
     public void increaseMove(){

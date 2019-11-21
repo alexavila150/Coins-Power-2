@@ -9,13 +9,13 @@
     <TextView
         android:id="@+id/turnIndicator"
         android:layout_width="0dp"
-        android:layout_height="60dp"
+        android:layout_height="0dp"
         android:background="#45B6FE"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/boardImage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/boardImage" />
 
     <ImageView
         android:id="@+id/boardImage"
@@ -292,22 +292,12 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/orange1"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:onClick="selectPiece"
-            android:tag="orange1"
-            app:layout_column="0"
-            app:layout_row="0"
-            app:srcCompat="@drawable/orange1" />
-
-        <ImageView
             android:id="@+id/orange2"
             android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:onClick="selectPiece"
             android:tag="orange2"
-            app:layout_column="1"
+            app:layout_column="0"
             app:layout_row="0"
             app:srcCompat="@drawable/orange2" />
 
@@ -317,7 +307,7 @@
             android:layout_height="wrap_content"
             android:onClick="selectPiece"
             android:tag="orange3"
-            app:layout_column="2"
+            app:layout_column="1"
             app:layout_row="0"
             app:srcCompat="@drawable/orange3" />
 
@@ -327,7 +317,7 @@
             android:layout_height="wrap_content"
             android:onClick="selectPiece"
             android:tag="orange4"
-            app:layout_column="3"
+            app:layout_column="2"
             app:layout_row="0"
             app:srcCompat="@drawable/orange4" />
 
@@ -337,9 +327,19 @@
             android:layout_height="wrap_content"
             android:onClick="selectPiece"
             android:tag="orange5"
-            app:layout_column="4"
+            app:layout_column="3"
             app:layout_row="0"
             app:srcCompat="@drawable/orange5" />
+
+        <ImageView
+            android:id="@+id/orange6"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:onClick="selectPiece"
+            android:tag="orange6"
+            app:layout_column="4"
+            app:layout_row="0"
+            app:srcCompat="@drawable/orange6" />
     </androidx.gridlayout.widget.GridLayout>
 
     <androidx.gridlayout.widget.GridLayout
@@ -353,22 +353,12 @@
         app:layout_constraintTop_toBottomOf="@+id/tableLayout">
 
         <ImageView
-            android:id="@+id/blue1"
+            android:id="@+id/blue2"
             android:layout_width="60dp"
             android:layout_height="match_parent"
             android:onClick="selectPiece"
-            android:tag="blue1"
-            app:layout_column="0"
-            app:layout_row="0"
-            app:srcCompat="@drawable/blue1" />
-
-        <ImageView
-            android:id="@+id/blue2"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:onClick="selectPiece"
             android:tag="blue2"
-            app:layout_column="1"
+            app:layout_column="0"
             app:layout_row="0"
             app:srcCompat="@drawable/blue2" />
 
@@ -378,7 +368,7 @@
             android:layout_height="wrap_content"
             android:onClick="selectPiece"
             android:tag="blue3"
-            app:layout_column="2"
+            app:layout_column="1"
             app:layout_row="0"
             app:srcCompat="@drawable/blue3" />
 
@@ -388,7 +378,7 @@
             android:layout_height="wrap_content"
             android:onClick="selectPiece"
             android:tag="blue4"
-            app:layout_column="3"
+            app:layout_column="2"
             app:layout_row="0"
             app:srcCompat="@drawable/blue4" />
 
@@ -398,9 +388,19 @@
             android:layout_height="wrap_content"
             android:onClick="selectPiece"
             android:tag="blue5"
-            app:layout_column="4"
+            app:layout_column="3"
             app:layout_row="0"
             app:srcCompat="@drawable/blue5" />
+
+        <ImageView
+            android:id="@+id/blue6"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:onClick="selectPiece"
+            android:tag="blue6"
+            app:layout_column="4"
+            app:layout_row="0"
+            app:srcCompat="@drawable/blue6" />
     </androidx.gridlayout.widget.GridLayout>
 
     <TextView
