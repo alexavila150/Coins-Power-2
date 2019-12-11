@@ -1,0 +1,4 @@
+#Sun Dec 01 15:57:01 MST 2019
+base.0=D\:\\CoinsPower2\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
